@@ -204,6 +204,93 @@
     background: linear-gradient(270deg, #F4F4F6 42.79%, rgba(244, 244, 246, 0.00) 100%);
 }
 
+.p_dontknow{
+    height: 24px;
+    align-self: stretch;
+    color: var(--040013-black-main, #040013);
+
+    /* P bold */
+    font-family: Museo Sans Cyrl;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+}
+
+.div_third{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.button_continue{
+    display: flex;
+    padding: 12px 64px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border:0;
+    opacity: 0.2;
+    background: var(--7953-c-3-purple-main, #7953C3);
+}
+
+.p_continue{
+    color: var(--ffffff-white-main, #FFF);
+
+    /* P bold */
+    font-family: Museo Sans Cyrl;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+}
+
+.p_emoji{
+    color: #000;
+
+    text-align: center;
+    /* H3 */
+    font-family: Museo Sans Cyrl;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.32px;
+}
+
+.div_simple{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.div_simple2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.p_tell_abt{
+    align-self: stretch;
+    color: var(--5-d-5-b-66-secondary-black, #5D5B66);
+
+    /* Small */
+    font-family: Museo Sans Cyrl;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.14px;
+}
+
 .div_alco{
     border: 0;
     display: flex;
@@ -234,6 +321,20 @@
     height: 1px;
     opacity: 0.5;
     background: #CCC;
+}
+
+.div_extra_nad{
+    display: flex;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 16px;
+    background: var(--ffffff-white-main, #FFF);
+    
+    /* Default multiple shadows */
+    box-shadow: 0px 1.13351px 4.29362px 0px rgba(133, 94, 152, 0.03), 0px 2.86674px 10.85888px 0px rgba(133, 94, 152, 0.04), 0px 5.84789px 22.15109px 0px rgba(133, 94, 152, 0.05), 0px 5.84789px 22.15109px 0px rgba(133, 94, 152, 0.05);
 }
 
 .p_info_small{
@@ -418,6 +519,7 @@ p{
     align-self: stretch;
 }
 .div_column_two{
+
     display: flex;
     width: 614px;
     flex-direction: column;
