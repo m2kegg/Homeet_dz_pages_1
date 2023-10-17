@@ -167,7 +167,6 @@ p{
 .avatar{
     display: flex;
     height: 200px;
-    padding: 40px 32px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -175,4 +174,63 @@ p{
     align-self: stretch;
     border-radius: 16px;
     border: 1px dashed var(--d-9-d-1-e-0-stroke, #CDBDDB);
+}
+
+.text_button_avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.p_avatar{
+    width: 191px;
+    color: var(--000-black, #000);
+    text-align: center;
+    /* P bold */
+    font-family: Museo Sans Cyrl;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+}
+
+.button_upload{
+    display: flex;
+    padding: 8px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border:none;
+    border-radius: 8px;
+    background: var(--7953-c-3-purple-main, #7953C3);
+}
+
+.text_upload{
+    color: var(--ffffff-white-main, #FFF);
+/* Small */
+    font-family: 'Museo Sans Cyrl';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.14px;
+}
+
+.text_upload_warn{
+    align-self: stretch;
+    color: #CCC;
+    text-align: center;
+    /* Small */
+    font-family: Museo Sans Cyrl;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.14px;
+}
+
+.button_upload:focus {
+    outline: none;
 }
