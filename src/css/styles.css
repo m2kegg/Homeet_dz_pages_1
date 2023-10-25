@@ -49,6 +49,11 @@
     border-radius: 8px;
     border: 1px solid var(--7953-c-3-purple-main, #7953C3);
     background: var(--ffffff-white-main, #FFF);
+    transition: 0.3s;
+}
+
+.button1:hover{
+    background: #7953C3;
 }
 
 .button_download_data{
@@ -378,6 +383,10 @@
     line-height: 24px; /* 150% */
 }
 
+.button1:hover .p_exit{
+    color:  #FFFFFF;
+}
+
 .main-div{
     display: flex;
     flex-direction: column;
@@ -390,7 +399,6 @@
 
 .button2{
     display: flex;
-    width: 112px;
     height: 36px;
     margin-right: 40px;
     padding: 8px 16px;
@@ -399,6 +407,11 @@
     border-radius: 8px;
     border: 1px solid var(--7953-c-3-purple-main, #7953C3);
     background: var(--ffffff-white-main, #FFF);
+    transition: 0.3s;
+}
+
+.button2:hover{
+    background: #7953C3;
 }
 
 .p_glavn{
@@ -410,6 +423,12 @@
     line-height: 20px; /* 142.857% */
     letter-spacing: -0.14px;
 }
+
+.button2:hover .p_glavn{
+    color: #FFFFFF;
+    
+}
+
 .div-first{
     display: flex;
     flex-direction: column;
@@ -896,6 +915,17 @@ h2{
     background: transparent;
     border: none !important;
     height: 24px;
+    transition: 0.3s;
+}
+
+
+.path_background{
+    fill: #F4F4F6;
+    transition: 0.3s;
+}
+
+.button_tg_vk:hover .path_background{
+    fill: #7953C3;
 }
 
 .svg_background_button{
@@ -906,7 +936,10 @@ h2{
     height: 24px;
     flex-shrink: 0;
     fill: #F4F4F6;
+    
 }
+
+
 
 .svg_tg_vk_icon{
     display: flex;
@@ -954,3 +987,19 @@ h2{
     line-height: 20px;
     letter-spacing: -0.14px;
 }
+
+
+/* попытаюсь создать календарь */
+
+
+
+
+
+
+
+/* конец попытки */
+
+
+/* для второй страницы */
+
+
