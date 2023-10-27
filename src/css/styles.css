@@ -652,12 +652,29 @@ p{
     letter-spacing: -0.14px;
     gap: 8px;
     box-sizing:border-box;
-    border: 2px;;
+    border: 2px solid transparent;
     border-radius: 8px;
+    box-sizing: border-box;
     background: #F4F4F6;
 }
 
+
+.input_name_surname.error{
+    box-shadow: 0 0 5px red;
+}
+
+.input_name_surname:focus{
+    outline: none;
+    box-shadow: black;
+}
+
+.input_name_surname.error:focus{
+    box-shadow: 0 0 8px red;
+}
+
 .label{
+    display: flex;
+    white-space: nowrap;
     position: absolute;
     top: 16px;
     left: 12px;
