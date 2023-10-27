@@ -5,6 +5,22 @@ let flagTg = false;
 let flagPhone = false;
 let flagAbout = false;
 
+//считаем возраст потерпевшего
+function getAge(birthDateString) {
+    let today = new Date();
+    let birthDate = new Date(birthDateString);
+
+    let age = today.getFullYear() - birthDate.getFullYear(); // Первоначальное вычисление возраста
+    let monthDifference = today.getMonth() - birthDate.getMonth();
+
+
+    if (monthDifference < 0 || (monthDifference == 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
 // ща будем проверять инпуты
 let input_name_surname = document.getElementById("name_surname");
 input_name_surname.addEventListener('input', function(e) {
@@ -47,17 +63,36 @@ let input_sex1 = document.getElementById("sex1");
 let input_sex2 = document.getElementById("sex2");
 input_sex1.addEventListener('input', function(e){
     flagSex = true;
+    let p_sex = document.getElementById('p_abt_sex');
+    let p_male = document.createElement('p');
+    p_male.textContent = "Парень";
+    p_male.id = "p_abt_sex";
+    p_male.classList.add('p_abt');
+    p_sex.replaceWith(p_male);
     
 });
 input_sex2.addEventListener('input', function(e){
     flagSex = true;
+    let p_sex = document.getElementById('p_abt_sex');
+    let p_female = document.createElement('p');
+    p_female.textContent = "Девушка";
+    p_female.id = "p_abt_sex";
+    p_female.classList.add('p_abt');
+    p_sex.replaceWith(p_female);
 });
 
 let input_date = document.getElementById("input_tgm");
-input_date.addEventListener('input', function(e){
-    const regdate = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
+input_date.addEventListener('change', function(e){
+    const regdate = /^(?:19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
     if (regdate.test(e.target.value)){
         flagDate = true;
+        let p_age = document.getElementById("age");
+        let p_age_text = getAge(e.target.value) + (getAge(e.target.value) % 10 == 1 ? " год" : " лет");
+        let p_age_element = document.createElement('p');
+        p_age_element.textContent = p_age_text;
+        p_age_element.classList.add('p_abt');
+        p_age_element.id = 'age';
+        p_age.replaceWith(p_age_element);
     }
     else{
         flagDate = false;
@@ -139,7 +174,18 @@ function validatePhone(input) {
 
 // по идее маска работает. нужны тесты
 
-// текст о себе не вижу смысла проверять.
+// текст о себе не вижу смысла проверять. сейчас добавим его в карточку
+
+let input_text_about = document.getElementById("about");
+input_text_about.addEventListener('input', function(e){
+    let p_abt_text = document.getElementById("p_info");
+    let p_new_text = document.createElement('p');
+    p_new_text.textContent = e.target.value;
+    p_new_text.classList.add('p_info_text');
+    p_new_text.id = 'p_info';
+
+    p_abt_text.replaceWith(p_new_text);
+});
 
 
 
