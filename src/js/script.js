@@ -10,7 +10,7 @@ function getAge(birthDateString) {
     let today = new Date();
     let birthDate = new Date(birthDateString);
 
-    let age = today.getFullYear() - birthDate.getFullYear(); // Первоначальное вычисление возраста
+    let age = today.getFullYear() - birthDate.getFullYear(); 
     let monthDifference = today.getMonth() - birthDate.getMonth();
 
 
@@ -19,6 +19,20 @@ function getAge(birthDateString) {
     }
 
     return age;
+}
+
+//разблокируем кнопку продолжения
+function checkForContinue(flagName, flagSex,  flagDate,  flagPhone){
+    if (flagPhone && flagName && flagSex && flagDate){
+        let button = document.getElementById("continue");
+        button.disabled = false;
+        button.style.opacity = 1;
+    }
+    else{
+        let button = document.getElementById("continue");
+        button.disabled = true;
+        button.style.opacity = 0.2;
+    }
 }
 
 // ща будем проверять инпуты
@@ -37,6 +51,7 @@ input_name_surname.addEventListener('input', function(e) {
         name_surname_text.style.lineHeight = '22px';
         name_surname_card.replaceWith(name_surname_text);
     }
+    checkForContinue(flagName, flagSex, flagDate, flagPhone);
 });
 
 function validateNameSurname(input) {
@@ -69,6 +84,7 @@ input_sex1.addEventListener('input', function(e){
     p_male.id = "p_abt_sex";
     p_male.classList.add('p_abt');
     p_sex.replaceWith(p_male);
+    checkForContinue(flagName, flagSex, flagDate, flagPhone);
     
 });
 input_sex2.addEventListener('input', function(e){
@@ -79,6 +95,7 @@ input_sex2.addEventListener('input', function(e){
     p_female.id = "p_abt_sex";
     p_female.classList.add('p_abt');
     p_sex.replaceWith(p_female);
+    checkForContinue(flagName, flagSex, flagDate, flagPhone);
 });
 
 let input_date = document.getElementById("input_tgm");
@@ -93,6 +110,7 @@ input_date.addEventListener('change', function(e){
         p_age_element.classList.add('p_abt');
         p_age_element.id = 'age';
         p_age.replaceWith(p_age_element);
+        checkForContinue(flagName, flagSex, flagDate, flagPhone);
     }
     else{
         flagDate = false;
@@ -169,6 +187,7 @@ function validatePhone(input) {
         label.textContent = "Номер телефона";
         label.style.color = '#5D5B66';
         flagPhone = true;
+        checkForContinue(flagName, flagSex, flagDate, flagPhone);
     }
 }
 
@@ -183,9 +202,117 @@ input_text_about.addEventListener('input', function(e){
     p_new_text.textContent = e.target.value;
     p_new_text.classList.add('p_info_text');
     p_new_text.id = 'p_info';
-
     p_abt_text.replaceWith(p_new_text);
 });
 
+
+let button = document.getElementById("continue");
+button.addEventListener('click', function(e){
+    let oldDiv = document.getElementById("column_one");
+    let newDiv = document.createElement('div');
+    newDiv.innerHTML = 
+    `<form class="form1">
+    <div class="div_student_vipusk">
+        <label class="text_sex">
+            <input type="radio" name="stud" id="stud1" value="Студент/Выпускник">
+            Студент/Выпускник
+        </label>
+        <label class="text_sex">
+            <input type="radio" name="stud" id="stud2" value="Работающий">
+            Работающий
+        </label>
+    </div>
+    <div class="div_course">
+        <p class="p_tell_abt">
+            Курс
+        </p>
+        <div class="div_course_with_gal">
+            <div class="div_course_choose">
+                <label class="radio_course">
+                    <input type="radio" name="course" value="1" id="k1">
+                    <span class="radio-indicator"><p class="p_footer_down">1</p></span>
+                    
+                </label>
+                <label class="radio_course">
+                    <input type="radio" name="course" value="2" id="k2">
+                    <span class="radio-indicator"><p class="p_footer_down">2</p></span>
+                    
+                </label>
+                <label class="radio_course">
+                    <input type="radio" name="course" value="3" id="k3">
+                    <span class="radio-indicator"><p class="p_footer_down">3</p></span>
+                    
+                </label>
+                <label class="radio_course">
+                    <input type="radio" name="course" value="4" id="k4">
+                    <span class="radio-indicator"><p class="p_footer_down">4</p></span>
+                    
+                </label>
+                <label class="radio_course">
+                    <input type="radio" name="course" value="5" id="k5">
+                    <span class="radio-indicator"><p class="p_footer_down">5</p></span>
+                    
+                </label>
+                <label class="radio_course">
+                    <input type="radio" name="course" value="6" id="k6">
+                    <span class="radio-indicator"><p class="p_footer_down">6</p></span>
+                </label>
+            </div>
+            <div class="div_gal">
+                <input type="checkbox">
+                <p class="p_footer_down">Я уже смешарик</p>
+            </div>
+            <div class="div_inputs_dop">
+                <div class="div_inputs">
+                    <select id="stud" name="studs" class="input_name_surname">
+                        <option value="bac">Бакалавриат</option>
+                        <option value="mag">Магистратура</option>
+                        <option value="spec">Специалитет</option>
+                    </select>
+                    <label for="stup" class="label">Ступень образования</label>
+                </div>
+                <div class="div_inputs">
+                    <select id="fac" name="facs" class="input_name_surname">
+                        <option value="miem">МИЭМ</option>
+                        <option value="fkn">ФКН</option>
+                    </select>
+                    <label for="fac" class="label">Факультет</label>
+                </div>
+                <div class="div_inputs">
+                    <input type="text" id="op" class="input_name_surname" placeholder="">
+                    <label for="op" class="label">Образовательная программа</label>
+                </div>
+            </div>
+            <script src=js/script2.js></script>
+        </div>
+    </div>
+</form>`
+        newDiv.classList.add("div_column_two");
+        oldDiv.parentNode.replaceChild(newDiv, oldDiv);
+
+        let p1 = document.getElementById("need_to_change");
+        let p2 = document.createElement('p');
+        p2.classList.add('p_extra');
+        p2.textContent = "Образование";
+        p1.replaceWith(p2);
+
+        let p3 = document.getElementById("change2");
+        let p4 = document.createElement('p');
+        p4.classList.add('p_dontknow');
+        p4.textContent = 'Расскажи, какой ты смешарик';
+        p3.replaceWith(p4);
+
+        let p5 = document.getElementById("change3");
+        let p6 = document.createElement('p');
+        p6.classList.add('p_tell_abt');
+        p6.textContent = 'Одинаковым смешарикам гораздо легче ужиться';
+        p5.replaceWith(p6);
+
+        let p_em_old = document.getElementById('emoji');
+        let p_em_new = document.createElement('p');
+        p_em_new.classList.add('p_emoji');
+        p_em_new.textContent = '🙂';
+        p_em_old.replaceWith(p.em_new);
+});
 
 
